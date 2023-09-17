@@ -23,17 +23,17 @@ public abstract class Pez {
         y += random.nextInt(7) - 3;
 
         // Restricciones para mantener los peces dentro del límite de la ventana
-        if (x < 0) {
-            x = 0;
+        if (x < 50) {
+            x = 50;
         }
-        if (x > (ancho - 80)) {
-            x =  ancho - 80;
+        if (x > (ancho - 100)) {
+            x =  ancho - 100;
         }
-        if (y < 0) {
-            y = 0;
+        if (y < 50) {
+            y = 50;
         }
-        if (y > (alto - 80)) {
-            y = alto - 80;
+        if (y > (alto - 100)) {
+            y = alto - 100;
         }
     }
 
