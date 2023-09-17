@@ -2,6 +2,9 @@ package org.example;
 
 import javax.swing.*;
 
+/**
+ * Clase que crea la ventana donde corre la aplicación
+ */
 public class VentanaPrincipal {
     public static void main(String[] args) {
 

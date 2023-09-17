@@ -7,27 +7,25 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 
 public class Acuario extends JPanel implements ActionListener {
-    private final Pez[] peces;
+
+    // TODO declarar un array de peces vacío
 
     public Acuario(int numeroDePeces, int ancho, int alto) {
-        peces = new Pez[numeroDePeces];
+        // TODO reasignar el array con el número de peces
         Random random = new Random();
 
-        for (int i = 0; i < numeroDePeces; i++) {
-            int x = random.nextInt(ancho - 30);
-            int y = random.nextInt(alto - 30);
-            if (i % 3 == 0){
-                peces[i] = new PezGlobo(x, y);
-            } else if (i % 5 == 0) {
-                peces[i] = new PezCarnivoro(x, y);
-            } else{
-                peces[i] = new PezPayaso(x, y);
-            }
-        }
-        // Establece el fondo azul claro
+        /** TODO crear un bucle que itere el array y vaya creando instancias de peces
+         * Necesitarás usar estas variables para las posiciones iniciales de cada pez:
+         *      int x = random.nextInt(ancho - 30);
+         *      int y = random.nextInt(alto - 30);
+         * Inicialemente, crea peces de tipo PezGlobo
+         */
+
+        // Propiedades del acuario
         this.setBackground(new Color(173, 216, 230));
         setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 20));
 
+        // Tiempo que transcurre entre evento y evento
         Timer timer = new Timer(100, this);
         timer.start();
     }
@@ -35,23 +33,24 @@ public class Acuario extends JPanel implements ActionListener {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for (Pez pez : peces) {
-            if (pez != null) {
-                pez.dibujar(g);
-            }
-        }
+        /**
+         * TODO crea un bucle for reducido para recorrer el array de peces que creaste al principio.
+         * El cuerpo del bucle solo tiene que tener esto:
+         *      if (pez != null) {
+         *          pez.dibujar(g);
+         *      }
+         */
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        for (Pez pez : peces) {
-            if (pez != null) {
-                pez.mover();
-                if (pez instanceof PezCarnivoro) {
-                    ((PezCarnivoro) pez).comer(peces);
-                }
-            }
-        }
+        /**
+         * TODO crea un bucle for reducido para recorrer el array de peces que creaste al principio.
+         * El cuerpo del bucle solo tiene que tener esto:
+         *       if (pez != null) {
+         *          pez.mover();
+         *       }
+         */
         repaint();
     }
 }

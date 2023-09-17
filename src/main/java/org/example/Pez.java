@@ -3,16 +3,16 @@ package org.example;
 import java.awt.*;
 import java.util.Random;
 
+/**
+ * Clase Pez
+ */
 public abstract class Pez {
-    protected int x, y;
+
+    // TODO crea 2 variables x e y para almacenar la posición del pez
     protected Color color;
     protected Random random = new Random();
 
-    public Pez(int x, int y, Color color) {
-        this.x = x;
-        this.y = y;
-        this.color = color;
-    }
+    // TODO crea un constructor de la clase Pez con las posiciones y el color como parámetros
 
     public void mover() {
         Configuracion config = new Configuracion();

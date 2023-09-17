@@ -3,9 +3,12 @@ package org.example;
 import java.io.InputStream;
 import java.util.Properties;
 
+/**
+ * Clase de configuración para acceder a las variables del .properties
+ */
 public class Configuracion {
 
-    private Properties properties = new Properties();
+    private final Properties properties = new Properties();
 
     public Configuracion() {
         try (InputStream input = getClass().getClassLoader().getResourceAsStream("config.properties")) {
