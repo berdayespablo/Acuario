@@ -15,7 +15,8 @@ puedes usar descargar [Sourcetree](https://www.sourcetreeapp.com/) o [GitHub Des
 
 El flujo es tan sencillo como esto: te traes los cambios en el repositorio (en la nube) con `pull`. Cuando tengas cambios en tu local, se preparan con `add` y se dejan listos para enviar con `commit`. Un commit es como un paquete
 con tus cambios listos para integrarse en el destino. Finalmente, se hace un `push` para enviarlos. 
-![image](https://github.com/berdayespablo/Acuario/assets/22392106/5bf32913-c76a-4673-8e71-0e4380ab0b57)
+
+![image](https://github.com/berdayespablo/Acuario/assets/22392106/73949402-e037-4d18-a68a-ba146bac76da)
 
 Se puede trabajar por interfaz gráfica, como se comentó anteriormente, o por comandos. Estos son los comandos de GIT que deberías conocer:
 - git clone: Para clonar el repositorio existente.
