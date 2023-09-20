@@ -7,7 +7,7 @@ import javax.swing.*;
  */
 public class VentanaPrincipal {
     public static void main(String[] args) {
-
+    
         Configuracion config = new Configuracion();
         int ancho = config.getVentanaAncho();
         int alto = config.getVentanaAlto();

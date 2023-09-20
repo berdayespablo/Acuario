@@ -5,7 +5,9 @@ Proyecto de práctica para entender algunos conceptos de la POO y de Java. Es un
 Ejecutar la clase VentanaPrincipal desde tu IDE de confianza. Yo recomiendo IntelliJ IDEA Community Edition. 
 
 ## ¿Qué hay que hacer? 
-Ir resolviendo todos los `TODO` dentro del código. Recomiendo empezar por la clase pez y seguir por la de acuario. Una vez tengas el acuario con peces, iremos añadiendo más funcionalidades. 
+Ir resolviendo todos los `TODO` dentro del código. Recomiendo empezar por la clase pez y seguir por la de acuario. Una vez tengas el acuario con peces, iremos añadiendo más funcionalidades.
+
+Al finalizar le darás un besito a Pablo (y cereaaaales).
 
 ## ¿Cuál es el modo de trabajo? 
 La rama arquetipo-base será tu rama de referencia. Tienes que clonar el repositorio desde esa rama, y una vez hecho, crearte la tuya propia con cualquier nombre. Siempre trabajarás en esa rama. Si tu IDE no ofrece simplicidad a la hora de hacer esto,
