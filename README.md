@@ -43,7 +43,6 @@ Puedes usar -b con git checkout para crear y cambiar a la nueva rama en un solo 
 git checkout -b NOMBRE_DE_LA_NUEVA_RAMA
 ```
 
-- git add: Para agregar los archivos modificados al área de ensayo.
 - git commit: Para guardar los cambios en el repositorio local con un mensaje descriptivo.
 
 ```git
