@@ -17,8 +17,9 @@ Aquí puedes ir viendo los tickets con el detalle de cada tarea: [Tablero Kanban
 ## Guía de GIT
 
 El flujo es tan sencillo como esto: te traes los cambios en el repositorio (en la nube) con `pull`. Cuando tengas cambios en tu local, se preparan con `add` y se dejan listos para enviar con `commit`. Un commit es como un paquete
-con tus cambios listos para integrarse en el destino. Finalmente, se hace un `push` para enviarlos. 
-![image](https://github.com/berdayespablo/Acuario/assets/22392106/5bf32913-c76a-4673-8e71-0e4380ab0b57)
+con tus cambios listos para integrarse en el destino. Finalmente, se hace un `push` para enviarlos.
+
+![image](https://github.com/berdayespablo/Acuario/assets/22392106/73949402-e037-4d18-a68a-ba146bac76da)
 
 Conceptos Fundamentales de Git:
 - *Repositorio*: Es el directorio donde Git ha inicializado y está rastreando los cambios de los archivos. Cada repositorio de Git tiene un historial completo de commits.
