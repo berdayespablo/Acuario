@@ -11,9 +11,17 @@ public abstract class Pez {
     // TODO crea 2 variables x e y para almacenar la posición del pez
     protected Color color;
     protected Random random = new Random();
-
+    int x;
+    int y;
+     
     // TODO crea un constructor de la clase Pez con las posiciones y el color como parámetros
-
+    
+    public Pez(int x, int y, Color color) {
+    	this.color = color;
+    	this.x = x;
+    	this.y = y;
+    }
+    
     public void mover() {
         Configuracion config = new Configuracion();
         int ancho = config.getVentanaAncho();
