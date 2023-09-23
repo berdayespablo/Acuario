@@ -3,8 +3,10 @@ package org.example;
 import java.awt.*;
 
 public class PezCarnivoro extends Pez {
-    public PezCarnivoro(int x, int y) {
+    private final Acuario acuario;
+    public PezCarnivoro(int x, int y, Acuario acuario) {
         super(x, y, Color.BLUE);
+        this.acuario = acuario;
     }
 
     @Override
@@ -25,6 +27,7 @@ public class PezCarnivoro extends Pez {
                     Math.abs(pez.x - this.x) < 10 && Math.abs(pez.y - this.y) < 10) {
                 peces[i] = null;
                 haComido = true;
+                acuario.agregarSimbolo(new Simbolo(x, y, "cruz"));
             }
         }
     }

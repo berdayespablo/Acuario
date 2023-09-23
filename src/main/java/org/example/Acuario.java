@@ -11,6 +11,8 @@ public class Acuario extends JPanel implements ActionListener {
     private final Pez[] peces;
 
     private final ArrayList<Comida> comidaList = new ArrayList<>();
+    private final ArrayList<Simbolo> simbolos = new ArrayList<>();
+
     private final Random random = new Random();
 
     private JTextArea console;
@@ -25,8 +27,8 @@ public class Acuario extends JPanel implements ActionListener {
             int y = random.nextInt(alto - 100);
             if (i % 4 == 0){
                 peces[i] = new PezGlobo(x, y);
-            } else if (i % 13 == 0) {
-                peces[i] = new PezCarnivoro(x, y);
+            } else if (i % 3 == 0) {
+                peces[i] = new PezCarnivoro(x, y, this);
             } else{
                 peces[i] = new PezPayaso(x, y);
             }
@@ -44,6 +46,10 @@ public class Acuario extends JPanel implements ActionListener {
             int x = random.nextInt(getWidth());
             comidaList.add(new Comida(x, 0)); // Añadir en la parte superior con posición x aleatoria
         }
+    }
+
+    public void agregarSimbolo(Simbolo simbolo) {
+        this.simbolos.add(simbolo);
     }
 
     public void setConsole(JTextArea console) {
@@ -89,6 +95,11 @@ public class Acuario extends JPanel implements ActionListener {
         }
         for (Comida comida : comidaList) {
             comida.dibujar(g);
+        }
+
+        simbolos.removeIf(Simbolo::haExpirado);
+        for (Simbolo simbolo : simbolos) {
+            simbolo.dibujar(g);
         }
     }
 
