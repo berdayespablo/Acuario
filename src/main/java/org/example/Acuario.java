@@ -4,12 +4,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Acuario extends JPanel implements ActionListener {
     private final Pez[] peces;
 
+    private final ArrayList<Comida> comidaList = new ArrayList<>();
+    private final Random random = new Random();
+
     private JTextArea console;
+
 
     public Acuario(int numeroDePeces, int ancho, int alto) {
         peces = new Pez[numeroDePeces];
@@ -18,9 +23,9 @@ public class Acuario extends JPanel implements ActionListener {
         for (int i = 0; i < numeroDePeces; i++) {
             int x = random.nextInt(ancho - 100);
             int y = random.nextInt(alto - 100);
-            if (i % 3 == 0){
+            if (i % 4 == 0){
                 peces[i] = new PezGlobo(x, y);
-            } else if (i % 5 == 0) {
+            } else if (i % 13 == 0) {
                 peces[i] = new PezCarnivoro(x, y);
             } else{
                 peces[i] = new PezPayaso(x, y);
@@ -32,6 +37,13 @@ public class Acuario extends JPanel implements ActionListener {
 
         Timer timer = new Timer(100, this);
         timer.start();
+    }
+
+    public void anadirComida() {
+        for (int i = 0; i < 5; i++) {
+            int x = random.nextInt(getWidth());
+            comidaList.add(new Comida(x, 0)); // Añadir en la parte superior con posición x aleatoria
+        }
     }
 
     public void setConsole(JTextArea console) {
@@ -60,9 +72,10 @@ public class Acuario extends JPanel implements ActionListener {
 
         if (console != null) {
             console.setText("Total de peces: " + totalPeces + "\n" +
-                    "Pez Globo: " + pezGloboCount + "\n" +
-                    "Pez Carnívoro: " + pezCarnivoroCount + "\n" +
-                    "Pez Payaso: " + pezPayasoCount);
+                    "   > Pez Globo: " + pezGloboCount + "\n" +
+                    "   > Pez Carnívoro: " + pezCarnivoroCount + "\n" +
+                    "   > Pez Payaso: " + pezPayasoCount + "\n" +
+                    "Comida: " + comidaList.size());
         }
     }
 
@@ -74,6 +87,9 @@ public class Acuario extends JPanel implements ActionListener {
                 pez.dibujar(g);
             }
         }
+        for (Comida comida : comidaList) {
+            comida.dibujar(g);
+        }
     }
 
     @Override
@@ -81,9 +97,21 @@ public class Acuario extends JPanel implements ActionListener {
         for (Pez pez : peces) {
             if (pez != null) {
                 pez.mover();
-                if (pez instanceof PezCarnivoro) {
-                    ((PezCarnivoro) pez).comer(peces);
+                if (!(pez instanceof PezCarnivoro)) {
+                    pez.comerComida(comidaList);
                 }
+                if (pez instanceof PezCarnivoro) {
+                    pez.comerPez(peces);
+                }
+            }
+        }
+
+        for (int i = 0; i < comidaList.size(); i++) {
+            Comida comida = comidaList.get(i);
+            comida.mover();
+            if (comida.getY() >= getHeight()) {
+                comidaList.remove(i);
+                i--;
             }
         }
         updateConsole();

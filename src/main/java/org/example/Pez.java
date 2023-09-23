@@ -1,10 +1,12 @@
 package org.example;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Random;
 
 public abstract class Pez {
     protected int x, y;
+    protected boolean haComido = false;
     protected Color color;
     protected Random random = new Random();
 
@@ -37,8 +39,22 @@ public abstract class Pez {
         }
     }
 
+    public void comerComida(ArrayList<Comida> comidas) {
+        for (int i = 0; i < comidas.size(); i++) {
+            Comida comida = comidas.get(i);
+            if (Math.abs(comida.getX() - this.x) < 10 && Math.abs(comida.getY()  - this.y) < 10) {
+                comidas.remove(i);
+                haComido = true;
+                break;
+            }
+        }
+    }
+
+    public void comerPez(Pez[] peces) {}
+
     public void dibujar(Graphics g) {
         g.setColor(color);
         g.fillOval(x, y, 20, 10);
     }
+
 }

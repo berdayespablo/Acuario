@@ -17,12 +17,14 @@ public class PezCarnivoro extends Pez {
         g.fillPolygon(xPoints, yPoints, 3);
     }
 
-    public void comer(Pez[] peces) {
+    @Override
+    public void comerPez(Pez[] peces) {
         for (int i = 0; i < peces.length; i++) {
             Pez pez = peces[i];
             if (pez != null && !(pez instanceof PezCarnivoro) &&
                     Math.abs(pez.x - this.x) < 10 && Math.abs(pez.y - this.y) < 10) {
                 peces[i] = null;
+                haComido = true;
             }
         }
     }

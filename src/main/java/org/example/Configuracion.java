@@ -35,5 +35,9 @@ public class Configuracion {
         return properties.getProperty("acuario.titulo", "No title");
     }
 
+    public String getTextButtonAnadirComida() {
+        return properties.getProperty("button.anadirComida", "No title");
+    }
+
     // Añade más constructores si usas más propiedades
 }

@@ -9,16 +9,32 @@ public class VentanaPrincipal {
         Configuracion config = new Configuracion();
         int ancho = config.getVentanaAncho();
         int alto = config.getVentanaAlto();
-        int numPeces = config.getNumPeces();
         String titulo = config.getTitulo();
+        String textoBotonComida = config.getTextButtonAnadirComida();
 
         JFrame frame = new JFrame(titulo);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(ancho, alto);
+        frame.setLayout(new BorderLayout());
 
-        Acuario acuario = new Acuario(numPeces, ancho, alto);
+        Acuario acuario = new Acuario(config.getNumPeces(), ancho, alto);
         frame.add(acuario, BorderLayout.CENTER);
 
+        /**
+         * Parte de opciones
+         */
+        JPanel panelDerecho = new JPanel();
+        panelDerecho.setLayout(new BoxLayout(panelDerecho, BoxLayout.Y_AXIS));
+        panelDerecho.setBackground(Color.GRAY);
+
+        JButton btnAnadirComida = new JButton(textoBotonComida);
+        btnAnadirComida.addActionListener(e -> acuario.anadirComida());
+        panelDerecho.add(btnAnadirComida);
+
+        frame.add(panelDerecho, BorderLayout.EAST);
+
+        /**
+         * Consola
+         */
         JTextArea console = new JTextArea();
         console.setBackground(Color.BLACK);
         console.setForeground(Color.GREEN);
@@ -26,6 +42,7 @@ public class VentanaPrincipal {
         frame.add(new JScrollPane(console), BorderLayout.SOUTH);
         acuario.setConsole(console);
 
+        frame.setSize(ancho + 200, alto);
         frame.setVisible(true);
 
     }
