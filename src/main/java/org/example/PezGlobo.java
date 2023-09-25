@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class PezGlobo extends Pez{
+	
 	public PezGlobo(int x, int y) {
         super(x, y, Color.RED);
     }

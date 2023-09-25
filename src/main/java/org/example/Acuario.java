@@ -27,11 +27,13 @@ public class Acuario extends JPanel implements ActionListener {
         for(int i = 0; i < peces.length; i ++) {
         	int x = random.nextInt(ancho - 30);
         	int y = random.nextInt(alto - 30);
-        	int tipoPez = random.nextInt(2); // Se genera un número aleatorio para decidir si es tipo Payaso o tipo Globo
+        	int tipoPez = random.nextInt(3); // Se genera un número aleatorio para decidir el tipo de pez
             if(tipoPez == 0) {
             	peces[i] = new PezGlobo (x,y); // Si el número generado es 0 se crea un tipo Globo
+            }else if(tipoPez == 1) {
+            	peces[i] = new PezPayaso (x,y); // Si es 1, se crea un tipo Payaso
             }else {
-            	peces[i] = new PezPayaso (x,y); // Si no, se crea un tipo Payaso
+            	peces[i] = new PezCarnivoro (x,y);
             }
         }
         
